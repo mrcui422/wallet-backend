@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "blockgen-merged-pooler@*",
+        "scope": null,
+        "escapedName": "blockgen-merged-pooler",
+        "name": "blockgen-merged-pooler",
+        "rawSpec": "*",
+        "spec": "*",
+        "type": "range"
+      },
+      "/home/balderdash/Projects/Blockgen New/uNOMP - LTS David - buggy"
+    ]
+  ],
+  "_from": "blockgen-merged-pooler@*",
+  "_id": "blockgen-merged-pooler@1.0.4",
+  "_inCache": true,
+  "_location": "/blockgen-merged-pooler",
+  "_nodeVersion": "6.9.4",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/blockgen-merged-pooler-1.0.4.tgz_1486596079809_0.05576720321550965"
+  },
+  "_npmUser": {
+    "name": "blockgen",
+    "email": "admin@blockgen.net"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "blockgen-merged-pooler@*",
+    "scope": null,
+    "escapedName": "blockgen-merged-pooler",
+    "name": "blockgen-merged-pooler",
+    "rawSpec": "*",
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/blockgen-merged-pooler/-/blockgen-merged-pooler-1.0.4.tgz",
+  "_shasum": "234e467725f308a77e4e5e02ae5d3f1edc394604",
+  "_shrinkwrap": null,
+  "_spec": "blockgen-merged-pooler@*",
+  "_where": "/home/balderdash/Projects/Blockgen New/uNOMP - LTS David - buggy",
+  "author": {
+    "name": "Daniel Beal"
+  },
+  "bugs": {
+    "url": "https://github.com/UNOMP/node-merged-pool/issues"
+  },
+  "contributors": [
+    {
+      "name": "zone117x"
+    },
+    {
+      "name": "vekexasia"
+    },
+    {
+      "name": "TheSeven"
+    },
+    {
+      "name": "sigwo"
+    },
+    {
+      "name": "infernoman"
+    }
+  ],
+  "dependencies": {
+    "async": "*",
+    "base58-native": "*",
+    "bignum": "*",
+    "redis": "*"
+  },
+  "description": "High performance Stratum poolserver in Node.js for merged mining",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "234e467725f308a77e4e5e02ae5d3f1edc394604",
+    "tarball": "https://registry.npmjs.org/blockgen-merged-pooler/-/blockgen-merged-pooler-1.0.4.tgz"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "gitHead": "b13031b285eb5ea241899d68311db6bff72bb62f",
+  "homepage": "https://github.com/UNOMP/node-merged-pool",
+  "keywords": [
+    "stratum",
+    "merged",
+    "mining",
+    "pool",
+    "server",
+    "poolserver",
+    "bitcoin",
+    "litecoin",
+    "scrypt",
+    "multipool",
+    "multicoin"
+  ],
+  "license": "GPL-2.0",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "name": "blockgen",
+      "email": "admin@blockgen.net"
+    }
+  ],
+  "name": "blockgen-merged-pooler",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UNOMP/node-merged-pool.git"
+  },
+  "scripts": {},
+  "version": "1.0.4"
+}
