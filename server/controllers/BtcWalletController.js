@@ -15,7 +15,7 @@ module.exports = {
 			if(error)
 			{
 				console.log('Redis Error', error);
-				res.status(500).send({'message' : error});
+				res.status(500).send({error : error});
 			}
 			
 			var daemonConfig = {
@@ -45,7 +45,7 @@ module.exports = {
 
 		                var percent = (blockCount / totalBlocks * 100).toFixed(2);
 		                console.log('Downloaded ' + percent + '% of blockchain from ' + peers.length + ' peers');
-		                res.status(200).send({synced: false, percentage: percent});
+		                res.status(200).send({synced: false, percentage: percent, error: null});
 		            });
 	        	});
 			};
@@ -55,7 +55,7 @@ module.exports = {
 		            return !r.error || r.error.code !== -10;
 		        });
 		        if (synced){
-		            res.status(200).send({synced: true});
+		            res.status(200).send({ synced: true, error: null });
 		        }
 		        else{
 		            if (!process.env.forkId || process.env.forkId === '0')
@@ -76,7 +76,7 @@ module.exports = {
 			if(error)
 			{
 				console.log('Redis Error', error);
-				res.status(500).send({message: error});
+				res.status(500).send({error: error});
 			}
 			
 			var daemonConfig = {
@@ -93,10 +93,10 @@ module.exports = {
 		    daemon.cmd('getnewaddress', [], function(results){
 		    	if(!results[0].error)
 		    	{	    		
-	    			res.status(200).send({address: results[0].response});
+	    			res.status(200).send({address: results[0].response, error: null});
 		    	}
 		    	else
-		    		res.status(404).send({message: results[0].error.message});
+		    		res.status(404).send({error: results[0].error.message});
 		    });  
 		});
 	},
@@ -108,7 +108,7 @@ module.exports = {
 			if(error)
 			{
 				console.log('Redis Error', error);
-				res.status(500).send({message: error});
+				res.status(500).send({error: error});
 			}
 			
 			var daemonConfig = {
@@ -124,11 +124,24 @@ module.exports = {
 		
 		    daemon.cmd('gettransaction', [tx_id], function(results){
 		    	if(!results[0].error)
-		    	{	    		
-	    			res.status(200).send(results[0].response);
+		    	{
+		    	    var response = { txid: results[0].response.txid };
+		    	    response.txAmount = results[0].response.amount;
+		    	    response.confirmations = results[0].response.confirmations;
+
+		    	    if (response.confirmations == 0)
+		    	        response.txStatus = 'pending';
+		    	    else if (response.confirmations < 3)
+		    	        response.txStatus = 'progress';
+		    	    else
+		    	        response.txStatus = 'confirmed';
+
+		    	    response.error = null;
+		    	    response.networkTxDetails = results[0].response;
+		    	    res.status(200).send(response);
 		    	}
 		    	else
-		    		res.status(404).send({message: results[0].error.message});
+		    		res.status(404).send({error: results[0].error.message});
 		    });  
 		});
 	},
@@ -138,11 +151,11 @@ module.exports = {
 		var parameters = req.body;
 		
 		var failure = (msg) => {
-	        res.json({ success: false, message: msg });
+	        res.json({ error: msg });
 	    };
 
 	    var success = (transactionHash) => {
-	        res.json({ success: true, txid: transactionHash });
+	        res.json({ txid: transactionHash, error: null});
 	    };
 	    
 		if (!parameters) {

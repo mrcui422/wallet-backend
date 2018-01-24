@@ -41,6 +41,7 @@
     "util-deprecate": "^1.0.2",
     "uuid": "^3.1.0",
     "web3": "^0.20.4",
+    "web3-eth-personal": "^1.0.0-beta.28",
     "wreck": "^13.0.0"
   },
   "devDependencies": {

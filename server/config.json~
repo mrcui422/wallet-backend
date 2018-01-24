@@ -2,7 +2,7 @@
   "development": {
     "username": "cui",
     "redis": {
-        "host": "35.199.39.129",
+        "host": "35.225.27.127",
         "password": "Tu6AYvGypxPs5dsS",
         "db": 0,
         "port": "16474"
@@ -11,7 +11,7 @@
   "production": {
     "username": "admin",
     "redis": {
-        "host": "35.199.39.129",
+        "host": "35.225.27.127",
         "password": "Tu6AYvGypxPs5dsS",
         "db": 0,
         "port": "16474"
